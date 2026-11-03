@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.GeminiGeorge22/forecast-accuracy-mcp",
+  "title": "Forecast Accuracy & Track Record MCP",
+  "description": "Forecast track records: forecasts vs actuals, earnings beats, prediction markets, archived news.",
+  "repository": {
+    "url": "https://github.com/GeminiGeorge22/forecast-accuracy-mcp",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "websiteUrl": "https://github.com/GeminiGeorge22/forecast-accuracy-mcp",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.apify.com/?tools=publicrecords/calibration-ledger,pintostudio/economic-calendar-data-investing-com,scrapemint/stock-earnings-estimates,fatihtahta/kalshi-scraper,parsebird/polymarket-scraper,ryanclinton/wayback-machine-search,data_xplorer/google-news-scraper-fast"
+    }
+  ]
+}

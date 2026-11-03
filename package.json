@@ -1,0 +1,52 @@
+{
+  "name": "forecast-accuracy-mcp",
+  "version": "0.1.0",
+  "description": "Stdio MCP server: forecast track records: forecasts vs actuals, earnings beats, prediction markets, archived news via Apify's hosted MCP gateway",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "forecast-accuracy-mcp": "src/server.js"
+  },
+  "main": "src/proxy.js",
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test test/proxy.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeminiGeorge22/forecast-accuracy-mcp.git"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "apify",
+    "forecasting",
+    "forecast-accuracy",
+    "calibration",
+    "prediction-markets",
+    "economic-data"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2"
+  },
+  "mcpProxy": {
+    "actors": [
+      "publicrecords/calibration-ledger",
+      "pintostudio/economic-calendar-data-investing-com",
+      "scrapemint/stock-earnings-estimates",
+      "fatihtahta/kalshi-scraper",
+      "parsebird/polymarket-scraper",
+      "ryanclinton/wayback-machine-search",
+      "data_xplorer/google-news-scraper-fast"
+    ]
+  }
+}

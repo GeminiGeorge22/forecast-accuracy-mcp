@@ -1,0 +1,9 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "maintainers": [
+    "GeminiGeorge22"
+  ],
+  "name": "Forecast Accuracy & Track Record MCP",
+  "description": "Forecast track records: forecasts vs actuals, earnings beats, prediction markets, archived news. Hosted remote MCP via Apify plus an open-source stdio proxy.",
+  "category": "Finance"
+}
