@@ -1,6 +1,6 @@
 {
   "name": "forecast-accuracy-mcp",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Stdio MCP server: forecast track records: forecasts vs actuals, earnings beats, prediction markets, archived news via Apify's hosted MCP gateway",
   "type": "module",
   "license": "MIT",
