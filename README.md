@@ -111,14 +111,14 @@ A matching Python version of this server lives in [`python/`](python/), built on
   "mcpServers": {
     "forecast-accuracy": {
       "command": "uvx",
-      "args": ["--from", "git+https://github.com/GeminiGeorge22/forecast-accuracy-mcp#subdirectory=python", "forecast-accuracy-mcp"],
+      "args": ["forecast-accuracy-mcp"],
       "env": { "APIFY_TOKEN": "YOUR_APIFY_TOKEN" }
     }
   }
 }
 ```
 
-Or with pip: `pip install "git+https://github.com/GeminiGeorge22/forecast-accuracy-mcp#subdirectory=python"`, then run `forecast-accuracy-mcp`. Python tests: `cd python && pip install -e ".[test]" && env -u APIFY_TOKEN python -m pytest`.
+Or with pip: `pip install forecast-accuracy-mcp`, then run `forecast-accuracy-mcp`. Python tests: `cd python && pip install -e ".[test]" && env -u APIFY_TOKEN python -m pytest`.
 
 ## See also
 
