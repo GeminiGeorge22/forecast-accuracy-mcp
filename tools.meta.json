@@ -1,0 +1,9 @@
+{
+  "publicrecords/calibration-ledger": "Use when someone cites a forecast from an institution (IMF, OECD, Fed/FOMC, SPF, ECB SPF or a listed issuer) and you need to know how accurate that institution's past forecasts were. Returns error distribution, bias and worst misses with source links, or an explicit no-coverage answer.",
+  "pintostudio/economic-calendar-data-investing-com": "Use when you need scheduled macro releases with actual vs forecast vs previous values (Investing.com economic calendar) by country, importance and date range.",
+  "scrapemint/stock-earnings-estimates": "Use when you need analyst EPS estimates vs reported earnings for a US stock, beat/miss history and recent estimate revisions.",
+  "fatihtahta/kalshi-scraper": "Use when you need current Kalshi prediction-market prices, volumes and categories.",
+  "parsebird/polymarket-scraper": "Use when you need Polymarket leaderboard rankings and trader profiles (profit/loss, volume, positions).",
+  "ryanclinton/wayback-machine-search": "Use when you need archived Wayback Machine snapshots of a URL or domain over time, e.g. to see what a page said on a past date.",
+  "data_xplorer/google-news-scraper-fast": "Use when you need recent Google News articles for a query (title, source, date, URL, image)."
+}
