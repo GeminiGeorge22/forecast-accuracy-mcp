@@ -102,6 +102,24 @@ Optional env: `APIFY_ACTORS` (comma-separated subset of the Actors above) and `A
 
 Tests run against an in-memory mock server, with no network and no token: `npm test`. Requires Node.js 18+.
 
+### Python (uvx/pip)
+
+A matching Python version of this server lives in [`python/`](python/), built on the official `mcp` Python SDK: same tools, same `APIFY_TOKEN`, same hosted endpoint. Requires Python 3.10+.
+
+```json
+{
+  "mcpServers": {
+    "forecast-accuracy": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/GeminiGeorge22/forecast-accuracy-mcp#subdirectory=python", "forecast-accuracy-mcp"],
+      "env": { "APIFY_TOKEN": "YOUR_APIFY_TOKEN" }
+    }
+  }
+}
+```
+
+Or with pip: `pip install "git+https://github.com/GeminiGeorge22/forecast-accuracy-mcp#subdirectory=python"`, then run `forecast-accuracy-mcp`. Python tests: `cd python && pip install -e ".[test]" && env -u APIFY_TOKEN python -m pytest`.
+
 ## See also
 
 - [ecommerce-search-rankings-mcp](https://github.com/GeminiGeorge22/ecommerce-search-rankings-mcp): E-commerce search results and rankings
