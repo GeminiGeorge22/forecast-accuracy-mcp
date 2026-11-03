@@ -1,5 +1,7 @@
 # forecast-accuracy-mcp (Python)
 
+<!-- mcp-name: io.github.GeminiGeorge22/forecast-accuracy-mcp -->
+
 Python version of the [forecast-accuracy-mcp](https://github.com/GeminiGeorge22/forecast-accuracy-mcp) stdio MCP server, built on the official [`mcp`](https://pypi.org/project/mcp/) Python SDK. Same tools, same `APIFY_TOKEN` env var, same hosted endpoint as the Node.js server.
 
 Stdio MCP server: forecast track records: forecasts vs actuals, earnings beats, prediction markets, archived news via Apify's hosted MCP gateway
@@ -11,15 +13,17 @@ It answers `initialize` and `tools/list` locally from the bundled `tools.json` (
 Requires Python 3.10+. With [uv](https://docs.astral.sh/uv/):
 
 ```bash
-uvx --from "git+https://github.com/GeminiGeorge22/forecast-accuracy-mcp#subdirectory=python" forecast-accuracy-mcp
+uvx forecast-accuracy-mcp
 ```
 
 With pip:
 
 ```bash
-pip install "git+https://github.com/GeminiGeorge22/forecast-accuracy-mcp#subdirectory=python"
+pip install forecast-accuracy-mcp
 forecast-accuracy-mcp
 ```
+
+To run the latest unreleased code from GitHub instead of the PyPI release: `uvx --from "git+https://github.com/GeminiGeorge22/forecast-accuracy-mcp#subdirectory=python" forecast-accuracy-mcp`.
 
 MCP client config:
 
@@ -28,7 +32,7 @@ MCP client config:
   "mcpServers": {
     "forecast-accuracy": {
       "command": "uvx",
-      "args": ["--from", "git+https://github.com/GeminiGeorge22/forecast-accuracy-mcp#subdirectory=python", "forecast-accuracy-mcp"],
+      "args": ["forecast-accuracy-mcp"],
       "env": { "APIFY_TOKEN": "YOUR_APIFY_TOKEN" }
     }
   }
