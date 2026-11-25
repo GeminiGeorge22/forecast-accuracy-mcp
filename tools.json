@@ -143,7 +143,7 @@
     {
       "name": "pintostudio--economic-calendar-data-investing-com",
       "title": "Economic Calendar Data (Investing.com)",
-      "description": "Economic Calendar Data (Investing.com). Extract structured economic calendar events (actual, forecast, previous, importance) from Investing.com across 45+ countries. Built for algorithmic trading systems, AI trading agents, RAG pipelines, and financial research. Filter by country, importance, category, and date range.\n\nWhen to use: Use when you need scheduled macro releases with actual vs forecast vs previous values (Investing.com economic calendar) by country, importance and date range.\n\nReturns: the run's dataset rows as structured JSON (one row per result), plus the run and dataset IDs for paging the full dataset.\n\nBehavior: starts one run of the Apify Actor \"pintostudio/economic-calendar-data-investing-com\" through Apify's hosted MCP gateway (mcp.apify.com) with your own APIFY_TOKEN; the run uses your Apify account. Read-only: it only reads public web data and changes nothing on the source site. Docs: https://apify.com/pintostudio/economic-calendar-data-investing-com",
+      "description": "Economic Calendar Data (Investing.com). Extract structured economic calendar events (actual, forecast, previous, importance) from Investing.com across 90+ countries. Built for algorithmic trading systems, AI trading agents, RAG pipelines, and financial research. Filter by country, importance, category, and date range.\n\nWhen to use: Use when you need scheduled macro releases with actual vs forecast vs previous values (Investing.com economic calendar) by country, importance and date range.\n\nReturns: the run's dataset rows as structured JSON (one row per result), plus the run and dataset IDs for paging the full dataset.\n\nBehavior: starts one run of the Apify Actor \"pintostudio/economic-calendar-data-investing-com\" through Apify's hosted MCP gateway (mcp.apify.com) with your own APIFY_TOKEN; the run uses your Apify account. Read-only: it only reads public web data and changes nothing on the source site. Docs: https://apify.com/pintostudio/economic-calendar-data-investing-com",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -872,7 +872,7 @@
     {
       "name": "data_xplorer--google-news-scraper-fast",
       "title": "Google News Scraper",
-      "description": "Google News Scraper. Scrape Google News in real time, including images and descriptions. This tool extracts complete structured data: high-resolution visuals, full, titles, sources, dates, and direct URLs.\n\nWhen to use: Use when you need recent Google News articles for a query (title, source, date, URL, image).\n\nReturns: the run's dataset rows as structured JSON (one row per result), plus the run and dataset IDs for paging the full dataset.\n\nBehavior: starts one run of the Apify Actor \"data_xplorer/google-news-scraper-fast\" through Apify's hosted MCP gateway (mcp.apify.com) with your own APIFY_TOKEN; the run uses your Apify account. Read-only: it only reads public web data and changes nothing on the source site. Docs: https://apify.com/data_xplorer/google-news-scraper-fast",
+      "description": "Google News Scraper. Scrape Google News by keyword, topic or custom dates: more than 100 articles per keyword, sources, images, publication dates and the full article text for free. Export to JSON or CSV, or use it through the API or MCP.\n\nWhen to use: Use when you need recent Google News articles for a query (title, source, date, URL, image).\n\nReturns: the run's dataset rows as structured JSON (one row per result), plus the run and dataset IDs for paging the full dataset.\n\nBehavior: starts one run of the Apify Actor \"data_xplorer/google-news-scraper-fast\" through Apify's hosted MCP gateway (mcp.apify.com) with your own APIFY_TOKEN; the run uses your Apify account. Read-only: it only reads public web data and changes nothing on the source site. Docs: https://apify.com/data_xplorer/google-news-scraper-fast",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -919,14 +919,14 @@
           },
           "maxArticles": {
             "title": "Maximum News",
-            "description": "Maximum number of news to extract per keyword or topic (0 = no limit)",
+            "description": "Maximum number of news to extract per keyword or topic (0 = no limit). More than 100 articles per keyword: Google News shows about 100 results per search, so the scraper automatically splits the period into smaller date ranges and combines them. This needs a time period of at least 'Last week', or custom dates.",
             "type": "integer",
             "minimum": 0,
             "default": 100
           },
           "timeframe": {
             "title": "Time Period (Only for keywords)",
-            "description": "Time period for the news search. Note: this filter applies mainly to keyword searches. Topic pages return their own curated results. Options: 1h = Last hour; 1d = Last day; 7d = Last week; 30d = Last month; 1y = Last year; all = Anytime.",
+            "description": "Time period for the keyword search. To get more than 100 articles per keyword, choose 'Last week' or longer (up to about 700 for a week, 3,000 for a month, 5,000 for a year). Ignored when custom dates are set below. Topic pages return their own curated results. Options: 1h = Last hour; 1d = Last day; 7d = Last week; 30d = Last month; 1y = Last year; all = Anytime.",
             "type": "string",
             "enum": [
               "1h",
@@ -937,6 +937,16 @@
               "all"
             ],
             "default": "1h"
+          },
+          "dateFrom": {
+            "title": "From date (keywords only)",
+            "description": "Only articles published on or after this date (YYYY-MM-DD). When set, it replaces the time period above. Leave both dates empty to use the time period.",
+            "type": "string"
+          },
+          "dateTo": {
+            "title": "To date (keywords only)",
+            "description": "Only articles published on or before this date (YYYY-MM-DD). Leave empty for today. With more than 100 articles requested, the date range is split automatically to collect more than 100 articles.",
+            "type": "string"
           },
           "region_language": {
             "title": "Region and Language",
@@ -1048,6 +1058,12 @@
             "type": "boolean",
             "default": true
           },
+          "extractFullText": {
+            "title": "Extract Full Article Text (free)",
+            "description": "Adds the full text of each article in a fullText field, read from the publisher's page. No extra cost. Runs take longer, and paywalled sites may return no text or only the beginning of the article.",
+            "type": "boolean",
+            "default": false
+          },
           "proxyConfiguration": {
             "title": "Proxy Configuration",
             "description": "Configure Apify Proxy. Residential proxies recommended for best results.",
@@ -1062,6 +1078,12 @@
                 "default": true
               }
             }
+          },
+          "debug": {
+            "title": "Debug logs",
+            "description": "Show detailed technical logs. For troubleshooting only.",
+            "type": "boolean",
+            "default": false
           }
         }
       },
